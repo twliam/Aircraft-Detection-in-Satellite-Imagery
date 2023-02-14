@@ -4,10 +4,10 @@ GA Capstone Project
 ### The Challenge
 Traffic tends to be more dynamic at Seletar Airport due to its primary use as an aerodrome for general aviation (GA) and business flights, both of which tend to be non-scheduled in nature. The only scheduled flights are by Malaysian operator Firefly. To further exacerbate the issue, traffic volume has also been increasing post-covid. It is tough to know when to expect more air traffic movement except through shared observations among the local general aviation community, which isn't particularly large. This uncertainty is particularly costly due to the high price tag of GA flying in Singapore.‍
 
-## Problem Statement
+### Problem Statement
 GA pilots (both private license holders and students) thus need a way to monitor activity trends at Seletar Airport so as to better plan their flights to be more cost effective. 
 
-## Possible Solutions
+### Possible Solutions
 After communicating with some club members, most agreed it would be nice to see some numbers with regards to popular usage timings at the airport. Two potential solutions came to mind:
 1. Analyze flight data extracted from a publicly available flight tracker such as flightradar24
 2. Implement a means to automate the community observations mentioned in the previous sction.  
@@ -16,7 +16,7 @@ After communicating with some club members, most agreed it would be nice to see 
 
 This could be possible with the advancement in revisit capabilities of available satellite constellations e.g. Planet's SkySat Constellation being capable of rapid revisits of up to 12 times per day. Although the way low-orbit satellites work does not allow for constant monitoring, it should be sufficient for tracking trends over a period of time.  
 
-## The Project
+### The Project
 In this first iteration, the aim is to train an object detection model to accurately identify and locate aircraft within satellite images, achieving at least 0.75 mAP.
 
 ### Data
@@ -29,7 +29,12 @@ The Airbus Aircraft Dataset contains 103 satellite images with corresponding ann
 Mean Average Precision (mAP)  
 The mAP incorporates the trade-off between precision and recall and considers both false positives (FP) and false negatives (FN). An aircraft detection system would need to balance recall with precision to ensure that capacity is correctly monitored. The presence of too many false detections (whether positive or negative) would be highly detrimental to efficiency and the effectiveness of the model.
 
-## Limitations & Drawbacks
+### Performance
+YOLOv8 obtained a mAP of 0.884 on the validation dataset and a mAP of 0.922 on the test dataset. Shown below are images obtained from Google Earth Pro, annotated with detections made by the model.
+[Sample Detection Changi](sample detections/changi google maps.jpg)
+[Sample Detection Seletar](sample detections/seletar google maps.jpg)
+
+### Limitations & Drawbacks
 **1. Cost of satellite tasking and imagery vs cost of simply flying.**  
 Satellite tasking isn't the cheapest of solutions, although this is mitigated by time potentially spent stuck on the ground (Upwards of $550/hr for training flights) and having to be at the airport. The consideration here would be human effort vs cost of automation.  
 
@@ -39,11 +44,11 @@ Weather over the airfield would block satellite imaging, although this could als
 **3. Quantity and Quality of Training Data**  
 More images with a greater variety of airfields, backgrounds and aircraft types would definitely aid in increasing the model's ability to detect aircraft in novel environments, such as over large water bodies or flying in forested training areas.
 
-## Future Directions
+### Future Directions
 As it stands, more features, such as a dashboard for easy monitoring, needs to be built on top of this model before it can be put into production for its desired use case but the model itself can be used in several other situations as well. An extension to this project in the pipeline would be to recognize, differentiate and detect military aircraft in addition to civil ones for ntelligence applications. This would also extend its suitability in being adapted for an aerodrome like Changi where there is military traffic too. While ground-based monitoring capabilities (such as radar, MLAT, ADS-B) are robust, brings a fresh perspective and is intuitively easier to make sense of. Being able to visually pick out potential hot spots or high traffic clusters may help in informing aircraft maneuvering area processes and utilization for greater safety and efficiency.
 
 On that note, an aircraft parking facility such as Asia Pacific Aircraft Storage in Alice Springs, Australia, could employ a similar satellite-based solution for monitoring capacity. At time of writing, these further developments would still require careful consultation with data providers to determine the feasibility of such a project subject to the exact capabilities of currently available satellite constellations. To end off, here is a sample video on SkySat's video capability SkySat Video of Dubai, United Arab Emirates - YouTube.
 
-Credits:  
+*Credits:  
 The Airbus Aircraft Detection Dataset a is licensed under the Creative Commons BY-NC-SA 4.0 International license:
-https://creativecommons.org/licenses/by-nc-sa/4.0/ and was obtained from https://www.kaggle.com/datasets/airbusgeo/airbus-aircrafts-sample-dataset
+https://creativecommons.org/licenses/by-nc-sa/4.0/ and was obtained from https://www.kaggle.com/datasets/airbusgeo/airbus-aircrafts-sample-dataset*
