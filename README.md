@@ -31,8 +31,8 @@ The mAP incorporates the trade-off between precision and recall and considers bo
 
 ### Performance
 YOLOv8 obtained a mAP of 0.884 on the validation dataset and a mAP of 0.922 on the test dataset. Shown below are images obtained from Google Earth Pro, annotated with detections made by the model.
-[Sample Detection Changi](sample detections/changi google maps.jpg)
-[Sample Detection Seletar](sample detections/seletar google maps.jpg)
+[Changi detection](/sample detections/changi google maps.jpg)
+[Seletar detection](/sample detections/seletar google maps.jpg)
 
 ### Limitations & Drawbacks
 **1. Cost of satellite tasking and imagery vs cost of simply flying.**  
